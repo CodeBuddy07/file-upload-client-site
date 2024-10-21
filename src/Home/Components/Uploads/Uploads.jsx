@@ -84,7 +84,7 @@ const Uploads = () => {
                                     <QRCode
                                         size={256}
                                         style={{ height: "96px", maxWidth: "96px", width: "96px" }}
-                                        value={`https://www.barauthenup-digitelunionsoft.com/file/${file.name}`}
+                                        value={`https://www.barauthenup-digitelunionsoft.com/file/${encodeURIComponent(file.name)}`}
                                         viewBox={`0 0 256 256`}
                                     />
                                 </div>
@@ -94,7 +94,7 @@ const Uploads = () => {
 
                                     <div className=" flex justify-start items-center md:mt-3">
                                         <a
-                                            href={`https://www.barauthenup-digitelunionsoft.com/file/${file.name}`}
+                                            href={`https://www.barauthenup-digitelunionsoft.com/file/${encodeURIComponent(file.name)}`}
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             className="text-blue-500 hover:underline mr-4 btn md:btn-sm btn-xs"
