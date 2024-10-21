@@ -43,6 +43,7 @@ const Text = () => {
     const handleSave = async (e) => {
         setLoading(true);
         setClicked(true);
+        setLink('');
         e.preventDefault();
         const text = e.target.text.value;
 
@@ -51,6 +52,7 @@ const Text = () => {
         if (!text) {
             toast.warning("Please enter some text",{theme:"colored"});
             setLoading(false);
+            setClicked(false);
             return;
         }
 

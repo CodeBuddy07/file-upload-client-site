@@ -16,6 +16,7 @@ const File = () => {
     const handleUpload = async (e) => {
         setLoading(true);
         setClicked(true);
+        setLink('');
         e.preventDefault();
     
         const file = e.target.file.files[0];
@@ -23,6 +24,7 @@ const File = () => {
         if (!file) {
             toast.warning("Please select a file first",{theme:"colored"});
             setLoading(false);
+            setClicked(false);
             return;
         }
     
@@ -38,7 +40,7 @@ const File = () => {
             });
     
             toast.success(`File uploaded successfully`,{theme:"colored"});
-            setLink(response?.data?.link);
+            setLink(`https://drive.google.com/file/d/${response?.data?.fileId}/view`);
             setLoading(false);
         } catch (error) {
             toast.error('Error uploading file', {theme: "colored"});
