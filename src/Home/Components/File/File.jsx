@@ -1,4 +1,3 @@
-import axios from "axios";
 import QR from "../../Shared/QR/QR";
 import { useState } from "react";
 import { toast } from "react-toastify";

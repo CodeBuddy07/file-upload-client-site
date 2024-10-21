@@ -1,6 +1,5 @@
 import { toast } from "react-toastify";
 import QR from "../../Shared/QR/QR";
-import axios from "axios";
 import { useState } from "react";
 import useAxiosSecure from "../../Authentication/AxiosSecure/useAxiosSecure";
 
