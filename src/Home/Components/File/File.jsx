@@ -55,7 +55,7 @@ const File = () => {
                     <div className="border-t-2 border-dotted border-[#CD93D7] mt-3"></div>
                     <form onSubmit={(e) => handleUpload(e)} className="my-5 flex flex-col">
                         <h1>Select Your File : </h1>
-                        <input type="file" className="file-input file-input-bordered w-full max-w-xs mt-2" name="file" />
+                        <input type="file" className="file-input file-input-bordered w-full mt-2" name="file" />
                         <button type="submit" className="mt-5 btn bg-[#9B27AF] hover:bg-purple-500 text-lg font-bold text-white">Generate QR Code</button>
                     </form>
                 </div>
