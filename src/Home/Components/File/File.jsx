@@ -2,6 +2,7 @@ import axios from "axios";
 import QR from "../../Shared/QR/QR";
 import { useState } from "react";
 import { toast } from "react-toastify";
+import useAxiosSecure from "../../Authentication/AxiosSecure/useAxiosSecure";
 
 
 const File = () => {
@@ -9,6 +10,8 @@ const File = () => {
     const [link, setLink] = useState("");
     const [loading, setLoading] = useState(false);
     const [clicked, setClicked] = useState(false);
+
+    const axiosSecure = useAxiosSecure()
 
     const handleUpload = async (e) => {
         setLoading(true);
@@ -27,7 +30,7 @@ const File = () => {
         formData.append("file", file);   // Append the selected file
     
         try {
-            const response = await axios.post('https://file-upload-server-site.vercel.app/upload', formData, {
+            const response = await axiosSecure.post('/upload', formData, {
                 withCredentials: true, // important to include cookies for authentication
                 headers: {
                     'Content-Type': 'multipart/form-data', // Set content type to multipart/form-data

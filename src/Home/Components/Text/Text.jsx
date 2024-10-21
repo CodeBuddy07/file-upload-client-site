@@ -2,6 +2,7 @@ import { toast } from "react-toastify";
 import QR from "../../Shared/QR/QR";
 import axios from "axios";
 import { useState } from "react";
+import useAxiosSecure from "../../Authentication/AxiosSecure/useAxiosSecure";
 
 const Text = () => {
 
@@ -9,6 +10,7 @@ const Text = () => {
     const [loading, setLoading] = useState(false);
     const [clicked, setClicked] = useState(false);
 
+    const axiosSecure = useAxiosSecure();
 
     function generateTitle(text) {
 
@@ -53,9 +55,7 @@ const Text = () => {
         }
 
         try {
-            const response = await axios.post('https://file-upload-server-site.vercel.app/upload-text', { text, name }, {
-                withCredentials: true, // Send cookies for authentication if necessary
-            });
+            const response = await axiosSecure.post('/upload-text', { text, name });
 
             toast.success(`Text saved to Google Drive!`, {theme: "colored"});
             setLink(`https://drive.google.com/file/d/${response.data.fileId}/view`)

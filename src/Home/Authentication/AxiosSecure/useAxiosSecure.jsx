@@ -6,8 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 
 const axiosSecure = axios.create({
-    baseURL: import.meta.env.VITE_SERVER_URL,
-    //baseURL: 'https://server.cloudyruhul.xyz',
+    baseURL: 'https://file-upload-server-site.vercel.app',
     withCredentials: true,
 });
 
