@@ -13,12 +13,18 @@ const QR = ({ link, loading, clicked }) => {
 
         const img = new Image();
         img.onload = () => {
+            const padding = 20; // Set desired padding
             const canvas = document.createElement("canvas");
-            canvas.width = 256; // Set the canvas size
-            canvas.height = 256;
+            canvas.width = 256 + padding * 2; // Set the canvas size with padding
+            canvas.height = 256 + padding * 2;
 
             const ctx = canvas.getContext("2d");
-            ctx.drawImage(img, 0, 0);
+            // Draw a white background for padding
+            ctx.fillStyle = "#fff"; // Background color
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            // Draw the QR code with padding
+            ctx.drawImage(img, padding, padding);
+
             const imgData = canvas.toDataURL("image/png");
 
             const link = document.createElement("a");
@@ -31,7 +37,7 @@ const QR = ({ link, loading, clicked }) => {
 
         img.src = url; // Set the image source to the blob URL
     };
-
+    
     return (
         <div className="flex-1 flex justify-center items-center p-5">
             <h1 className={clicked ? "hidden" : "text-lg text-[#738392] font-semibold text-center"}>
@@ -39,7 +45,7 @@ const QR = ({ link, loading, clicked }) => {
             </h1>
             <div className={loading ? "skeleton h-80 w-96" : "hidden"}></div>
             <div className={ !link ? "hidden" :"flex gap-5 flex-col"}>
-                <div ref={qrRef} className={ !link ? "hidden" : "w-96"}>
+                <div ref={qrRef} className={ !link ? "hidden" : "w-80 rounded-md border"}>
                     <QRCode
                         size={256}
                         style={{ height: "auto", maxWidth: "100%", width: "100%" }}
