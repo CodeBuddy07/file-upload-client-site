@@ -6,6 +6,7 @@ import Uploads from "../Home/Components/Uploads/Uploads";
 import Login from "../Home/Authentication/Login/Login";
 import ProtectedRoute from "../Home/Authentication/ProtectedRoute/ProtectedRoute";
 import Loading from "../Home/Shared/Loading/Loading";
+import FileViewPage from "../FileViewPage/FileViewPage";
 
 const Router = createBrowserRouter([
     {
@@ -32,8 +33,8 @@ const Router = createBrowserRouter([
         element: <Login></Login>
     },
     {
-      path: '/l',
-      element: <Loading></Loading>
+      path: '/file/:filename',
+      element: <FileViewPage></FileViewPage>
   }
   ]);
   

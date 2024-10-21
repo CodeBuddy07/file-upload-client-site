@@ -59,7 +59,7 @@ const Text = () => {
             const response = await axiosSecure.post('/upload-text', { text, name });
 
             toast.success(`Text saved to Google Drive!`, {theme: "colored"});
-            setLink(`https://drive.google.com/file/d/${response.data.fileId}/view`)
+            setLink(response?.data?.customLink)
             setLoading(false);
         } catch (error) {
             toast.error('Error saving text',{theme: "colored"});

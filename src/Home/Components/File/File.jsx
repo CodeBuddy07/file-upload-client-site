@@ -39,7 +39,8 @@ const File = () => {
             });
     
             toast.success(`File uploaded successfully`,{theme:"colored"});
-            setLink(`https://drive.google.com/file/d/${response?.data?.fileId}/view`);
+            console.log(response.data)
+            setLink(response?.data?.customLink);
             setLoading(false);
         } catch (error) {
             toast.error('Error uploading file', {theme: "colored"});
